@@ -18,28 +18,29 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import org.w3c.dom.Text;
+
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     // Create variables
-    private Button buttonRegister;
+    private Button buttonSignIn;
     private EditText editTextEmail;
     private EditText editTextPassword;
-    private TextView textViewSignin;
-
-    private ProgressDialog progressDialog;
+    private TextView textViewSignup;
 
     private FirebaseAuth firebaseAuth;
+    private ProgressDialog progressDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
-        // Initialise firebaseauth
+        // Initialising variables
         firebaseAuth = FirebaseAuth.getInstance();
 
-        // Check if current user has account
         if(firebaseAuth.getCurrentUser() != null)
         {
             // Profile activity here
@@ -47,28 +48,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
         }
 
-        // Initialise progressBar object
-        progressDialog = new ProgressDialog(this);
-
-        // Initialise register button
-        buttonRegister = (Button) findViewById(R.id.buttonRegister);
-
-        // Set variable values
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        buttonSignIn = (Button) findViewById(R.id.buttonSignin);
+        textViewSignup = (TextView) findViewById(R.id.textViewSignup);
 
-        textViewSignin = (TextView) findViewById(R.id.textViewSignin);
+        progressDialog = new ProgressDialog(this);
 
-        // Set onclick listeners to the buttons
-        buttonRegister.setOnClickListener(this);
-        textViewSignin.setOnClickListener(this);
+        buttonSignIn.setOnClickListener(this);
+        textViewSignup.setOnClickListener(this);
 
     }
 
-
-    private void registerUser()
+    // Method for user logging in
+    private void userLogin()
     {
-        // Create strings for email and password
+        // Set and initialise a string
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
@@ -92,51 +87,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // If validation is satisfactory
         // We will show a progress bar
-        progressDialog.setMessage("Registering user");
+        progressDialog.setMessage("Registering user. Please wait");
         progressDialog.show();
 
-        // Registering user to database
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
+        firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task)
                     {
+                        progressDialog.dismiss();
+
                         if(task.isSuccessful())
                         {
-                            // User succesfully registers and logged in
-                            // will start profile activity here
-                            // Profile activity here
+                            // Start the profile activity
                             finish();
                             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                         }
-                        else {
-                            Toast.makeText(MainActivity.this, "Failed to register. Please try again", Toast.LENGTH_SHORT).show();
-                            Toast.makeText(MainActivity.this, "Check password has 6 characters and an email is used", Toast.LENGTH_SHORT).show();
-                        }
-                        progressDialog.dismiss();
                     }
                 });
 
     }
 
+
     @Override
     public void onClick(View view)
     {
-        // Conditional to check if its a new user
-        if(view == buttonRegister)
+        // Check if sign up button clicked
+        if(view == buttonSignIn)
         {
-            // Method to register new user
-            registerUser();
+            // Call login function
+            userLogin();
         }
 
-        // Check if user has account
-        if(view == textViewSignin)
+        // Check if sign up is clicked
+        if(view == textViewSignup)
         {
-            // Will open login activity
-            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
         }
+
     }
 
-
 }
-

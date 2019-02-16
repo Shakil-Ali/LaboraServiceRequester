@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_centerHorizontal="true"
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_gravity="center_horizontal"
-            android:text="User Registration" />
+            android:text="User Login" />
 
         // Email
         <EditText
@@ -42,20 +42,22 @@
         // Login Button
         <Button
             android:layout_margin="15dp"
-            android:id="@+id/buttonRegister"
-            android:text="Sign up"
+            android:id="@+id/buttonSignin"
+            android:text="Sign in"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         // Already registered user
         <TextView
             android:textAlignment="center"
-            android:text="Already Registered? Sign in here."
-            android:id="@+id/textViewSignin"
+            android:text="Not have an account? Signup Here"
+            android:id="@+id/textViewSignup"
+            android:layout_margin="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
 
     </LinearLayout>
+
 
 </RelativeLayout>
