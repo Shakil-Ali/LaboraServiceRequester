@@ -10,13 +10,16 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-//
+
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener{
 
     // Initialise variables
     private FirebaseAuth firebaseAuth;
     private TextView textViewUserEmail;
     private Button buttonLogout;
+    private Button buttonSearch;
+    private Button buttonMessages;
+    private Button buttonSettings;
 
 
     @Override
@@ -41,9 +44,22 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         textViewUserEmail.setText("Welcome " + user.getEmail());
 
+        // Buttons on page
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
+        buttonSearch = (Button) findViewById(R.id.buttonSearch);
+        buttonMessages = (Button) findViewById(R.id.buttonMessages);
+        buttonSettings = (Button) findViewById(R.id.buttonSettings);
 
+        // Setting onclick listeners for buttons on page
         buttonLogout.setOnClickListener(this);
+        buttonSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                openSearch();
+            }
+        });
+
 
     }
 
@@ -56,6 +72,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             finish();
             startActivity(new Intent(this, LoginActivity.class));
         }
+    }
+
+    public void openSearch()
+    {
+        Intent intent = new Intent(this, Search.class);
+        startActivity(intent);
     }
 
 }

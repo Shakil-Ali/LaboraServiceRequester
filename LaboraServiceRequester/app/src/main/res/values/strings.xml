@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Labora Service Requester</string>
+    <array name="division">
+        <item>Artist</item>
+        <item>Builder</item>
+        <item>Cleaner</item>
+        <item>Driveway maker</item>
+        <item>Plumber</item>
+        <item>Quantity Surveyor</item>
+        <item>Valuer</item>
+        <item>Xylaphone teacher</item>
+        <item>Zoologist</item>
+    </array>
+    >
 </resources>
