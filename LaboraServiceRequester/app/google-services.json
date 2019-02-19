@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "228587952232-sveras99qg5g5tjch9ai3ipado5v56pq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.labora.laboracontractor",
+            "certificate_hash": "81414304f26d379be35014aca0a1141f44784a70"
+          }
+        },
+        {
           "client_id": "228587952232-sabq7orl5sptdcg4ifh9064tcgo93cmi.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228587952232-sabq7orl5sptdcg4ifh9064tcgo93cmi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
@@ -46,6 +59,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "228587952232-opkv6ilfoh97kll01rnu9ncg8odt1frf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.labora.laboraservicerequester",
+            "certificate_hash": "b0c5b6125532bf6d4f9b35a81e9ba4f5f0bb53b8"
+          }
+        },
+        {
           "client_id": "228587952232-sabq7orl5sptdcg4ifh9064tcgo93cmi.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -60,8 +81,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228587952232-sabq7orl5sptdcg4ifh9064tcgo93cmi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

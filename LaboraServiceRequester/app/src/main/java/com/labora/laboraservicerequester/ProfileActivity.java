@@ -76,7 +76,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     public void openSearch()
     {
-        Intent intent = new Intent(this, Search.class);
+        Intent intent = new Intent(this, Services.class);
         startActivity(intent);
     }
 
