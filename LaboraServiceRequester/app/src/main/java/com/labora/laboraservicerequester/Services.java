@@ -26,6 +26,8 @@ import com.google.firestore.v1.FirestoreGrpc;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.opencensus.stats.Aggregation;
+
 public class Services extends AppCompatActivity implements AdapterView.OnItemSelectedListener
 {
     // Initialise variables
@@ -74,81 +76,61 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
                 String requesterJob = job.getText().toString();
                 String requesterKeyWord = keyW.getText().toString();
 
-                // Initialise Hash Map
-                Map<String, String> userMap = new HashMap<>();
-                userMap.put("Service", requesterService);
-                userMap.put("Name", requesterName);
-                userMap.put("Post Code", requesterPostCode);
-                userMap.put("Phone", requesterPhone);
-                userMap.put("Email", requesterEmail);
-                userMap.put("Job Description", requesterJob);
-                userMap.put("Keywords", requesterKeyWord);
-
-                nFirestore.collection("Users-Requester").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                request.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(Services.this, "Completed", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        String error = e.getMessage();
-                        Toast.makeText(Services.this, "Error" + error, Toast.LENGTH_SHORT).show();
+                    public void onClick(View v) {
+                        openSummary();
                     }
                 });
 
+                if(!TextUtils.isEmpty(requesterName) && !TextUtils.isEmpty(requesterPostCode) && !TextUtils.isEmpty(requesterPhone) && !TextUtils.isEmpty(requesterEmail) && !TextUtils.isEmpty(requesterJob) && !TextUtils.isEmpty(requesterKeyWord) && !TextUtils.isEmpty(requesterService)) {
+                    // Initialise Hash Map
+                    Map<String, String> userMap = new HashMap<>();
+                    userMap.put("Service", requesterService);
+                    userMap.put("Name", requesterName);
+                    userMap.put("Post Code", requesterPostCode);
+                    userMap.put("Phone", requesterPhone);
+                    userMap.put("Email", requesterEmail);
+                    userMap.put("Job Description", requesterJob);
+                    userMap.put("Keywords", requesterKeyWord);
+
+
+                    nFirestore.collection("Users-Requester").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Toast.makeText(Services.this, "Request Completed", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            String error = e.getMessage();
+                            Toast.makeText(Services.this, "Error" + error, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else {
+                    Toast.makeText(Services.this, "Please fill in the required fields", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
     }
 
-    /*
-    public void addRequests()
-    {
-        String requesterName = name.getText().toString();
-        String requesterPostCode = postC.getText().toString();
-        String requesterPhone = phone.getText().toString();
-        String requesterEmail = email.getText().toString();
-        String requesterJobDesc = job.getText().toString();
-        String requesterKeyWords = keyW.getText().toString();
-
-        if(!TextUtils.isEmpty(requesterName) && !TextUtils.isEmpty(requesterPostCode) && !TextUtils.isEmpty(requesterPhone) && !TextUtils.isEmpty(requesterEmail) && !TextUtils.isEmpty(requesterJobDesc) && !TextUtils.isEmpty(requesterKeyWords))
-        {
-            // Create id
-            String id = databaseReference.push().getKey();
-
-            // Sending the data
-            Requests requests = new Requests(id, requesterName, requesterPostCode, requesterPhone, requesterEmail, requesterJobDesc, requesterKeyWords);
-
-            // Store
-            databaseReference.child(id).setValue(requests);
-
-            // Clear the fields
-            name.setText("");
-            postC.setText("");
-            phone.setText("");
-            email.setText("");
-            job.setText("");
-            keyW.setText("");
-
-            // Opens summary page
-            Intent intent = new Intent(this, Summary.class);
-            startActivity(intent);
-
-        }
-        else {
-            Toast.makeText(Services.this, "Please fill in the required fields", Toast.LENGTH_LONG).show();
-        }
-
+    // Open summary page when the request is successful
+    public void openSummary(){
+        Intent intent = new Intent(this, Summary.class);
+        startActivity(intent);
     }
-    */
 
+
+    // For the spinner (This is required by Android Studio)
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
     }
 
+    // For the spinner (This is required by Android Studio)
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
