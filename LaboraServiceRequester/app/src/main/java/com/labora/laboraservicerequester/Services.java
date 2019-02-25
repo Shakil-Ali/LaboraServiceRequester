@@ -1,6 +1,8 @@
 package com.labora.laboraservicerequester;
 
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,12 +23,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.GeoPoint;
 import com.google.firestore.v1.FirestoreGrpc;
 
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import io.opencensus.stats.Aggregation;
 
 public class Services extends AppCompatActivity implements AdapterView.OnItemSelectedListener
 {
@@ -135,4 +139,36 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+    // To turn post code into address
+    public GeoPoint getLocationFromAddress(String strAddress){
+
+        Geocoder coder = new Geocoder(this);
+        List<Address> address;
+        GeoPoint p1 = null;
+
+        try
+        {
+            address = coder.getFromLocationName(strAddress,5);
+            if (address==null) {
+                return null;
+            }
+            Address location=address.get(0);
+            location.getLatitude();
+            location.getLongitude();
+
+            p1 = new GeoPoint((double) (location.getLatitude() * 1E6),
+                    (double) (location.getLongitude() * 1E6));
+
+            return p1;
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
 }
+
