@@ -140,8 +140,10 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
 
     }
 
+    /*
     // To turn post code into address
-    public GeoPoint getLocationFromAddress(String strAddress){
+    public GeoPoint getLocationFromAddress(String strAddress)
+    {
 
         Geocoder coder = new Geocoder(this);
         List<Address> address;
@@ -168,7 +170,7 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
             return null;
         }
     }
-
+    */
 
 }
 
