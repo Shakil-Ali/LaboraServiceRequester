@@ -12,6 +12,7 @@
         android:text="Your request has been registered!"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:id="@+id/summary"
         />
 
 </RelativeLayout>
