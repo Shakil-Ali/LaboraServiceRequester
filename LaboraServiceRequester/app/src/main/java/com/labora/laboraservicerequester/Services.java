@@ -80,6 +80,7 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
                 String requesterJob = job.getText().toString();
                 String requesterKeyWord = keyW.getText().toString();
 
+
                 request.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -140,7 +141,7 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
 
     }
 
-    /*
+
     // To turn post code into address
     public GeoPoint getLocationFromAddress(String strAddress)
     {
@@ -170,7 +171,7 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
             return null;
         }
     }
-    */
+
 
 }
 
