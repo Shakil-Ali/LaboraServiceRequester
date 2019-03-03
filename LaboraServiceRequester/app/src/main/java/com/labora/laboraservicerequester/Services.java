@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
@@ -38,6 +39,7 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
     private EditText name, postC, phone, email, job, keyW;
     private Button request;
     private FirebaseFirestore nFirestore;
+    private FirebaseAuth firebaseAuth;
 
     DatabaseReference databaseReference;
 
@@ -49,6 +51,10 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
 
         // Assignment operations
         nFirestore = FirebaseFirestore.getInstance();
+
+        //
+        firebaseAuth = FirebaseAuth.getInstance();
+
 
         final Spinner spinner = findViewById(R.id.spinner1);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.services, android.R.layout.simple_spinner_item);
@@ -79,6 +85,8 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
                 String requesterEmail = email.getText().toString();
                 String requesterJob = job.getText().toString();
                 String requesterKeyWord = keyW.getText().toString();
+                String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
 
 
                 request.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +106,8 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
                     userMap.put("Email", requesterEmail);
                     userMap.put("Job Description", requesterJob);
                     userMap.put("Keywords", requesterKeyWord);
+                    userMap.put("userid", userId);
+
 
 
                     nFirestore.collection("Users-Requester").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -141,7 +151,7 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
 
     }
 
-
+    /*
     // To turn post code into address
     public GeoPoint getLocationFromAddress(String strAddress)
     {
@@ -171,7 +181,7 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
             return null;
         }
     }
-
+    */
 
 }
 
