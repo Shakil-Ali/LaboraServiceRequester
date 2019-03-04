@@ -70,19 +70,21 @@ public class RegisterActivity2 extends AppCompatActivity implements View.OnClick
         String occupation = editTextOccupancy.getText().toString().trim();
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        Map<String, Object> user_contractor = new HashMap<>();
-        user_contractor.put("fullname", name);
-        user_contractor.put("address", address);
-        user_contractor.put("phone", phone);
-        user_contractor.put("occupation", occupation);
-        user_contractor.put("userid", userId);
+        Map<String, Object> user_service = new HashMap<>();
+        user_service.put("fullname", name);
+        user_service.put("address", address);
+        user_service.put("phone", phone);
+        user_service.put("occupation", occupation);
+        user_service.put("userid", userId);
 
-        mFirestore.collection("Users-Contractor")
-                .add(user_contractor)
+        mFirestore.collection("Users-ServiceRequester")
+                .add(user_service)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                        startActivity(new Intent(getApplicationContext(),  ProfileActivity.class));
+
                     }
                 })
 

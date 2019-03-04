@@ -25,7 +25,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.GeoPoint;
-import com.google.firestore.v1.FirestoreGrpc;
+//import com.google.firestore.v1.FirestoreGrpc;
 
 import java.io.IOException;
 import java.util.HashMap;
