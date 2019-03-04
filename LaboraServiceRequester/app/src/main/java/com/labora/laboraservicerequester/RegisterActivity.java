@@ -67,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         // Check if password is entered
         if(TextUtils.isEmpty(password)){
             //password is empty
-            Toast.makeText(this, "Please enter a valid password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please enter a valid password, which has 6 or more characters", Toast.LENGTH_SHORT).show();
             return;
 
         }

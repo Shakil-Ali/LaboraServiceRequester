@@ -26,7 +26,7 @@ public class RegisterActivity2 extends AppCompatActivity implements View.OnClick
 
     private EditText editTextFullName;
     private EditText editTextPhoneNumber;
-    private EditText editTextOccupancy;
+    // private EditText editTextOccupancy;
     private EditText editTextPostalAddress;
     private Button buttonRegister;
     private static final String TAG = "RegisterActivity2";
@@ -44,7 +44,7 @@ public class RegisterActivity2 extends AppCompatActivity implements View.OnClick
         mFirestore = FirebaseFirestore.getInstance();
 
         editTextFullName = (EditText) findViewById(R.id.editTextFullName);
-        editTextOccupancy = (EditText) findViewById(R.id.editTextOccupancy);
+        //editTextOccupancy = (EditText) findViewById(R.id.editTextOccupancy);
         editTextPhoneNumber = (EditText) findViewById(R.id.editTextPhoneNumber);
         editTextPostalAddress = (EditText) findViewById(R.id.editTextPostalAddress);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
@@ -67,14 +67,14 @@ public class RegisterActivity2 extends AppCompatActivity implements View.OnClick
         String name = editTextFullName.getText().toString().trim();
         String address = editTextPostalAddress.getText().toString().trim();
         String phone = editTextPhoneNumber.getText().toString().trim();
-        String occupation = editTextOccupancy.getText().toString().trim();
+        //String occupation = editTextOccupancy.getText().toString().trim();
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         Map<String, Object> user_service = new HashMap<>();
         user_service.put("fullname", name);
         user_service.put("address", address);
         user_service.put("phone", phone);
-        user_service.put("occupation", occupation);
+        //user_service.put("occupation", occupation);
         user_service.put("userid", userId);
 
         mFirestore.collection("Users-ServiceRequester")

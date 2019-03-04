@@ -40,10 +40,10 @@ public class LoginActivityToProfileActivityTest {
     public void testLaunchOfRegisterButton()
     {
         // Check if it does not return null
-        assertNotNull(nActivity.findViewById(R.id.buttonSignin));
+        assertNotNull(nActivity.findViewById(R.id.buttonSignIn));
 
         // Take the view with register button id
-        onView(withId(R.id.buttonSignin)).perform(click());
+        onView(withId(R.id.buttonSignIn)).perform(click());
 
         // Wait for monitor to be hit and then expires in 50000000 ms
         Activity profileActivity = getInstrumentation().waitForMonitorWithTimeout(monitor, 50000000);
