@@ -110,7 +110,7 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
 
 
 
-                    nFirestore.collection("Users-Requester").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    nFirestore.collection("Summary-ServiceRequester").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
                             Toast.makeText(Services.this, "Request Completed", Toast.LENGTH_SHORT).show();
