@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.GeoPoint;
@@ -36,7 +37,7 @@ import java.util.Map;
 public class Services extends AppCompatActivity implements AdapterView.OnItemSelectedListener
 {
     // Initialise variables
-    private EditText name, postC, phone, email, job, keyW;
+    private EditText postC, job, keyW;
     private Button request;
     private FirebaseFirestore nFirestore;
     private FirebaseAuth firebaseAuth;
@@ -62,16 +63,14 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        name = (EditText) findViewById(R.id.name);
+//        name = (EditText) findViewById(R.id.name);
         postC = (EditText) findViewById(R.id.postC);
-        phone = (EditText) findViewById(R.id.phone);
-        email = (EditText) findViewById(R.id.email);
+//        phone = (EditText) findViewById(R.id.phone);
+//        email = (EditText) findViewById(R.id.email);
         job = (EditText) findViewById(R.id.job);
         keyW = (EditText) findViewById(R.id.keyW);
-
         request = (Button) findViewById(R.id.request);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Requests");
 
         // Set onclick listener
         request.setOnClickListener(new View.OnClickListener() {
@@ -79,13 +78,14 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
             public void onClick(View v) {
                 //addRequests();
                 String requesterService = spinner.getSelectedItem().toString();
-                String requesterName = name.getText().toString();
+//                String requesterName = name.getText().toString();
                 String requesterPostCode = postC.getText().toString();
-                String requesterPhone = phone.getText().toString();
-                String requesterEmail = email.getText().toString();
+//                String requesterPhone = phone.getText().toString();
                 String requesterJob = job.getText().toString();
                 String requesterKeyWord = keyW.getText().toString();
+
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                String requesterEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
 
 
@@ -96,14 +96,14 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
                     }
                 });
 
-                if(!TextUtils.isEmpty(requesterName) && !TextUtils.isEmpty(requesterPostCode) && !TextUtils.isEmpty(requesterPhone) && !TextUtils.isEmpty(requesterEmail) && !TextUtils.isEmpty(requesterJob) && !TextUtils.isEmpty(requesterKeyWord) && !TextUtils.isEmpty(requesterService)) {
+                if(!TextUtils.isEmpty(requesterPostCode) && !TextUtils.isEmpty(requesterJob) && !TextUtils.isEmpty(requesterKeyWord) && !TextUtils.isEmpty(requesterService)) {
                     // Initialise Hash Map
                     Map<String, String> userMap = new HashMap<>();
                     userMap.put("Service", requesterService);
-                    userMap.put("Name", requesterName);
+//                    userMap.put("Name", requesterName);
                     userMap.put("Post Code", requesterPostCode);
-                    userMap.put("Phone", requesterPhone);
-                    userMap.put("Email", requesterEmail);
+//                    userMap.put("Phone", requesterPhone);
+//                    userMap.put("Email", requesterEmail);
                     userMap.put("Job Description", requesterJob);
                     userMap.put("Keywords", requesterKeyWord);
                     userMap.put("userid", userId);

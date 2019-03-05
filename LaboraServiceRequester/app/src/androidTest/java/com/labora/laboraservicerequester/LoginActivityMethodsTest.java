@@ -35,6 +35,32 @@ public class LoginActivityMethodsTest {
     }
 
     @Test
+    // Testing username field with empty password
+    public void testUsernameEmptyPassword()
+    {
+        // Input some text in edit text
+        Espresso.onView(withId(R.id.editTextEmail)).perform(typeText(nEmail));
+        Espresso.onView(withId(R.id.editTextPassword)).perform(typeText(""));
+        // Close soft keyboard
+        Espresso.closeSoftKeyboard();
+        // Perform button click
+        Espresso.onView(withId(R.id.buttonSignIn)).perform(click());
+    }
+
+    @Test
+    // Testing password field with empty username
+    public void testPasswordEmptyUsername()
+    {
+        // Input some text in edit text
+        Espresso.onView(withId(R.id.editTextEmail)).perform(typeText(""));
+        Espresso.onView(withId(R.id.editTextPassword)).perform(typeText(nPassword));
+        // Close soft keyboard
+        Espresso.closeSoftKeyboard();
+        // Perform button click
+        Espresso.onView(withId(R.id.buttonSignIn)).perform(click());
+    }
+
+    @Test
     // Testing user email
     public void testUserInputScenario()
     {

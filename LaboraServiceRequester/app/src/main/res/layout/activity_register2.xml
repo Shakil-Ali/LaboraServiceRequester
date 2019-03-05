@@ -69,13 +69,13 @@
             <!--android:hint="Enter your Occupancy"-->
             <!--android:inputType="text" />-->
 
-        <EditText
-            android:id="@+id/editTextPostalAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:hint="Enter your Address"
-            android:inputType="textPostalAddress" />
+        <!--<EditText-->
+            <!--android:id="@+id/editTextPostalAddress"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="15dp"-->
+            <!--android:hint="Enter your Address"-->
+            <!--android:inputType="textPostalAddress" />-->
 
 
         <Button

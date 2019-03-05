@@ -6,84 +6,92 @@
     android:layout_height="match_parent"
     tools:context=".Services">
 
-
-    <EditText
-    android:id="@+id/name"
-    android:layout_width="200dp"
-    android:layout_height="wrap_content"
-    android:hint="Full name"
-    android:layout_centerHorizontal="true"
-    android:layout_centerVertical="true"
-    android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/postC"
-        android:layout_below="@+id/name"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:hint="Post Code"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="18sp" />
-
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/postC"
-        android:layout_centerHorizontal="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <EditText
-        android:id="@+id/phone"
-        android:layout_below="@+id/spinner1"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:hint="Contact Number"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_below="@+id/phone"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="18sp" />
-
     <EditText
         android:id="@+id/job"
-        android:layout_below="@+id/email"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:hint="Job Specifics e.g. Deadline, budget etc"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="18sp" />
+        android:layout_width="wrap_content"
+        android:layout_height="106dp"
+        android:layout_alignBottom="@+id/keyW"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginBottom="73dp"
+        android:ems="10"
+        android:hint="Job Description"
+        android:inputType="textPersonName" />
+
+    <Spinner
+
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="51dp"
+        android:layout_alignBottom="@+id/postC"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginBottom="61dp">
+
+    </Spinner>
 
     <EditText
         android:id="@+id/keyW"
-        android:layout_below="@+id/job"
-        android:layout_width="200dp"
+        android:layout_width="357dp"
         android:layout_height="wrap_content"
-        android:hint="Words related to the service required"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="18sp" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginRight="23dp"
+        android:layout_marginBottom="236dp"
+        android:ems="10"
+        android:hint="Keyword(s)"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/postC"
+        android:layout_width="359dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/job"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
+        android:layout_marginBottom="106dp"
+        android:ems="10"
+        android:hint="Postcode"
+        android:inputType="textPostalAddress" />
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
         android:id="@+id/request"
-        android:text="Request"
-        android:layout_below="@+id/keyW"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="192dp"
+        android:layout_height="77dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="99dp"
+        android:layout_marginLeft="99dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginRight="120dp"
+        android:layout_marginBottom="124dp"
+        android:text="Request" />
 
 </RelativeLayout>
