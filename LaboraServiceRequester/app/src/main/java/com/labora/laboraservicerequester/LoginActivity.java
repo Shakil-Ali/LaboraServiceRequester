@@ -1,5 +1,3 @@
-/* AMANDEEP LOGIN PAGE */
-
 package com.labora.laboraservicerequester;
 
 import android.app.ProgressDialog;
@@ -66,7 +64,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             //email is empty
             Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
             return;
-
         }
 
         // Check if password is entered
@@ -93,6 +90,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             finish();
                             startActivity(new Intent(getApplicationContext(),  ProfileActivity.class));
 
+                        }
+                        else {
+                            Toast.makeText(LoginActivity.this, "Please enter valid login credentials or register an account", Toast.LENGTH_SHORT).show();
                         }
 
                     }

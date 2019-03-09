@@ -10,14 +10,14 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class ServicesTest {
+public class ProfileActivityToActivities {
 
     // Rule created, which will be required for this test
     @Rule
-    public ActivityTestRule<Services> nActivityTestRule = new ActivityTestRule<Services>(Services.class);
+    public ActivityTestRule<ProfileActivity> nActivityTestRule = new ActivityTestRule<ProfileActivity>(ProfileActivity.class);
 
     // Creating and initialising a private variable of type Services for use later in the tests
-    private Services nActivity = null;
+    private ProfileActivity nActivity = null;
 
     // Auto generated set up function
     @Before
@@ -29,13 +29,24 @@ public class ServicesTest {
 
     // Function to test the launch of the services page
     @Test
-    public void testLaunch()
+    public void testLogout()
     {
         // Attempt to launch the app and find the id of one of the components in Services page
-        View view = nActivity.findViewById(R.id.request);
+        View view = nActivity.findViewById(R.id.buttonLogout);
         // Check if launch is not null
         assertNotNull(view);
     }
+
+    // Function to test the launch of the services page
+    @Test
+    public void testSearch()
+    {
+        // Attempt to launch the app and find the id of one of the components in Services page
+        View view = nActivity.findViewById(R.id.buttonSearch);
+        // Check if launch is not null
+        assertNotNull(view);
+    }
+
 
 
     // Auto generated tear down function

@@ -13,18 +13,18 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static org.junit.Assert.*;
 
-public class LoginActivityMethodsTest {
+public class RegisterActivity2MethodsTest {
 
     @Rule
     // Need a rule to get the activity
-    public ActivityTestRule<LoginActivity> nActivityTestRule = new ActivityTestRule<LoginActivity>(LoginActivity.class);
+    public ActivityTestRule<RegisterActivity2> nActivityTestRule = new ActivityTestRule<RegisterActivity2>(RegisterActivity2.class);
 
-    // Creating and initialising a private variable of type LoginActivity for use later in the tests
-    private LoginActivity nActivity = null;
+    // Creating and initialising a private variable of type RegisterActivity2 for use later in the tests
+    private RegisterActivity2 nActivity = null;
 
-    // Test email address
-    private String nEmail = "shakil@goldsmiths.com";
-    private String nPassword = "123456";
+    // Variables for inout fields
+    private String nName = "test name";
+    private String nPhone = "123456789";
 
     @Before
     // setUp method
@@ -35,43 +35,49 @@ public class LoginActivityMethodsTest {
     }
 
     @Test
-    // Testing username field with empty password
+    // Testing name field with empty phone
     // Activity Launch Test
     public void testUsernameEmptyPassword()
     {
         // Input some text in edit text
-        Espresso.onView(withId(R.id.editTextEmail)).perform(typeText(nEmail));
-        Espresso.onView(withId(R.id.editTextPassword)).perform(typeText(""));
+        Espresso.onView(withId(R.id.editTextFullName)).perform(typeText(nName));
+        // Close soft keyboard
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(withId(R.id.editTextPhoneNumber)).perform(typeText(""));
         // Close soft keyboard
         Espresso.closeSoftKeyboard();
         // Perform button click
-        Espresso.onView(withId(R.id.buttonSignIn)).perform(click());
+        Espresso.onView(withId(R.id.buttonRegister)).perform(click());
     }
 
     @Test
-    // Testing password field with empty username
+    // Testing phone field with empty name
     public void testPasswordEmptyUsername()
     {
         // Input some text in edit text
-        Espresso.onView(withId(R.id.editTextEmail)).perform(typeText(""));
-        Espresso.onView(withId(R.id.editTextPassword)).perform(typeText(nPassword));
+        Espresso.onView(withId(R.id.editTextFullName)).perform(typeText(""));
+        // Close soft keyboard
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(withId(R.id.editTextPhoneNumber)).perform(typeText(nPhone));
         // Close soft keyboard
         Espresso.closeSoftKeyboard();
         // Perform button click
-        Espresso.onView(withId(R.id.buttonSignIn)).perform(click());
+        Espresso.onView(withId(R.id.buttonRegister)).perform(click());
     }
 
     @Test
-    // Testing user email and password login
+    // Testing user name and phone number
     public void testUserInputScenario()
     {
         // Input some text in edit text
-        Espresso.onView(withId(R.id.editTextEmail)).perform(typeText(nEmail));
-        Espresso.onView(withId(R.id.editTextPassword)).perform(typeText(nPassword));
+        Espresso.onView(withId(R.id.editTextFullName)).perform(typeText(nName));
+        // Close soft keyboard
+        Espresso.closeSoftKeyboard();
+        Espresso.onView(withId(R.id.editTextPhoneNumber)).perform(typeText(nPhone));
         // Close soft keyboard
         Espresso.closeSoftKeyboard();
         // Perform button click
-        Espresso.onView(withId(R.id.buttonSignIn)).perform(click());
+        Espresso.onView(withId(R.id.buttonRegister)).perform(click());
     }
 
     // tearDown method
