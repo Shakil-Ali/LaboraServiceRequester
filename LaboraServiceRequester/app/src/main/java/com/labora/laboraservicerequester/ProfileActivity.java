@@ -1,5 +1,6 @@
 package com.labora.laboraservicerequester;
 
+import android.app.Service;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,8 +19,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView textViewUserEmail;
     private Button buttonLogout;
     private Button buttonSearch;
-    private Button buttonMessages;
-    private Button buttonSettings;
 
 
     @Override
@@ -47,8 +46,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         // Buttons on page
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
         buttonSearch = (Button) findViewById(R.id.buttonSearch);
-        buttonMessages = (Button) findViewById(R.id.buttonMessages);
-        buttonSettings = (Button) findViewById(R.id.buttonSettings);
 
         // Setting onclick listeners for buttons on page
         buttonLogout.setOnClickListener(this);

@@ -40,7 +40,7 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
     private EditText postC, job, keyW;
     private Button request;
     private FirebaseFirestore nFirestore;
-    private FirebaseAuth firebaseAuth;
+    //private FirebaseAuth firebaseAuth;
 
     DatabaseReference databaseReference;
 
@@ -53,8 +53,7 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
         // Assignment operations
         nFirestore = FirebaseFirestore.getInstance();
 
-        //
-        firebaseAuth = FirebaseAuth.getInstance();
+        //firebaseAuth = FirebaseAuth.getInstance();
 
 
         final Spinner spinner = findViewById(R.id.spinner1);
@@ -85,8 +84,7 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
                 String requesterKeyWord = keyW.getText().toString();
 
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                String requesterEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-
+                //String requesterEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
 
                 request.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +93,7 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
                         openSummary();
                     }
                 });
+
 
                 if(!TextUtils.isEmpty(requesterPostCode) && !TextUtils.isEmpty(requesterJob) && !TextUtils.isEmpty(requesterKeyWord) && !TextUtils.isEmpty(requesterService)) {
                     // Initialise Hash Map
@@ -109,11 +108,11 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
                     userMap.put("userid", userId);
 
 
-
                     nFirestore.collection("Summary-ServiceRequester").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
                             Toast.makeText(Services.this, "Request Completed", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), Summary.class));
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -150,6 +149,7 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
 
     /*
     // To turn post code into address

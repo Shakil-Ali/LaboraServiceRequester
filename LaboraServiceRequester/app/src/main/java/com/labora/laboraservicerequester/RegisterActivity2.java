@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -61,42 +62,55 @@ public class RegisterActivity2 extends AppCompatActivity implements View.OnClick
 
     }
 
-    public void registerUser() {
+    public void registerUser()
+    {
+
+            String name = editTextFullName.getText().toString().trim();
+            //String address = editTextPostalAddress.getText().toString().trim();
+            String phone = editTextPhoneNumber.getText().toString().trim();
+            //String occupation = editTextOccupancy.getText().toString().trim();
+            String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(phone))
+        {
+
+            Map<String, Object> user_service = new HashMap<>();
+            user_service.put("fullname", name);
+            //user_service.put("address", address);
+            user_service.put("phone", phone);
+            //user_service.put("occupation", occupation);
+            user_service.put("userid", userId);
+            user_service.put("email", email);
+
+            mFirestore.collection("Users-ServiceRequester")
+                    .add(user_service)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+
+                        }
+                    })
 
 
-        String name = editTextFullName.getText().toString().trim();
-//        String address = editTextPostalAddress.getText().toString().trim();
-        String phone = editTextPhoneNumber.getText().toString().trim();
-        //String occupation = editTextOccupancy.getText().toString().trim();
-        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error adding document", e);
+                        }
+                    });
 
-        Map<String, Object> user_service = new HashMap<>();
-        user_service.put("fullname", name);
-//        user_service.put("address", address);
-        user_service.put("phone", phone);
-        //user_service.put("occupation", occupation);
-        user_service.put("userid", userId);
-        user_service.put("email", email);
+            Toast.makeText(RegisterActivity2.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+            finish();
+            startActivity(new Intent(getApplicationContext(),  Summary.class));
 
-        mFirestore.collection("Users-ServiceRequester")
-                .add(user_service)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                        startActivity(new Intent(getApplicationContext(),  ProfileActivity.class));
+        }
+        else{
+            Toast.makeText(this, "Please fill in the missing fields", Toast.LENGTH_SHORT).show();
+        }
 
-                    }
-                })
-
-
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
-                    }
-                });
     }
 
     public void onClick(View view){

@@ -32,7 +32,7 @@ public class ProfileActivityTest {
     public void testLaunch()
     {
         // Attempt to launch the app and find the id of one of the components in ProfileActivity
-        View view = nActivity.findViewById(R.id.buttonLogout);
+        View view = nActivity.findViewById(R.id.textViewUserEmail);
         // Check if launch is not null
         assertNotNull(view);
     }
