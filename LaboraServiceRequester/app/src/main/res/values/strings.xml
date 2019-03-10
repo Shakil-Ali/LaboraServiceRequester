@@ -2,7 +2,7 @@
     <string name="app_name">Labora Service Requester</string>
 
     <string-array name="services">
-        <item> </item>
+        <item >Choose a service</item>
         <item>Artist</item>
         <item>Barber</item>
         <item>Counsellor</item>

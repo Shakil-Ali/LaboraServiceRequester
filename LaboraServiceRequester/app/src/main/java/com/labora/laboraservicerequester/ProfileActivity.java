@@ -1,5 +1,6 @@
 package com.labora.laboraservicerequester;
 
+// Import statements
 import android.app.Service;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-
+// Public class Profile Activity
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener{
 
     // Initialise variables
@@ -20,7 +21,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private Button buttonLogout;
     private Button buttonSearch;
 
-
+    // On create method
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -37,10 +38,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(new Intent(this, LoginActivity.class));
         }
 
+        // Get current user
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
+        // Get and display their username on profile screen
         textViewUserEmail = (TextView) findViewById(R.id.textViewUserEmail);
-
         textViewUserEmail.setText("Welcome " + user.getEmail());
 
         // Buttons on page
@@ -53,26 +55,32 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View v)
             {
-                openSearch();
+                openServices();
             }
         });
 
-
     }
 
+
+    // Method to check if buttons are clicked
     @Override
     public void onClick(View view)
     {
+        // Conditional to check if logout button clicked
         if(view == buttonLogout)
         {
+            // Sign out method from fire base database
             firebaseAuth.signOut();
+            // Finish and start the login screen
             finish();
             startActivity(new Intent(this, LoginActivity.class));
         }
     }
 
-    public void openSearch()
+    // Open services method
+    public void openServices()
     {
+        // Start services activity
         Intent intent = new Intent(this, Services.class);
         startActivity(intent);
     }
