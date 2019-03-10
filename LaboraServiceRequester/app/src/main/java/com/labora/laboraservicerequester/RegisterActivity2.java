@@ -42,6 +42,8 @@ public class RegisterActivity2 extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register2);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mFirestore = FirebaseFirestore.getInstance();
 
         editTextFullName = (EditText) findViewById(R.id.editTextFullName);

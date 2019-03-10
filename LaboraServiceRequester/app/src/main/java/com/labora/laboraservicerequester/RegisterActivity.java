@@ -49,6 +49,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         // Set onClick listeners
         buttonRegister.setOnClickListener(this);
+
     }
 
     private void registerUser() {
@@ -109,10 +110,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         if(view == buttonRegister) {
             registerUser();
-
         }
-
-
 
 
     }

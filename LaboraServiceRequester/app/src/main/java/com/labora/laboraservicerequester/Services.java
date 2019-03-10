@@ -42,13 +42,15 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
     private FirebaseFirestore nFirestore;
     //private FirebaseAuth firebaseAuth;
 
-    DatabaseReference databaseReference;
+    //DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_services);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Assignment operations
         nFirestore = FirebaseFirestore.getInstance();

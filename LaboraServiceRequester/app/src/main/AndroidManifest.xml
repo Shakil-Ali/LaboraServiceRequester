@@ -11,10 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegisterActivity2"></activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".Summary" />
-        <activity android:name=".Services" />
+        <activity android:name=".RegisterActivity2" android:parentActivityName=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity" android:parentActivityName=".LoginActivity" />
+        <activity android:name=".Summary" android:parentActivityName=".Services"/>
+        <activity android:name=".Services" android:parentActivityName=".ProfileActivity"/>
         <activity android:name=".ProfileActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" >
