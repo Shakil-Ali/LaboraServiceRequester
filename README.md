@@ -1,8 +1,9 @@
 # Group 16 Service Requester Software Project 
 
-
 Project Title
 Simple overview of use/purpose.
+
+______________________________________
 
 Description
 An in-depth paragraph about your project and overview of use.
@@ -14,26 +15,28 @@ An in-depth paragraph about your project and overview of use.
 | # | # | # |
 | # | # | # |
 
-Getting Started
-Dependencies
+
+_____________________________________
+
+Getting Started:
+- Dependencies
 Describe any prerequisites, libraries, OS version, etc., needed before installing program.
 ex. Windows 10
-Installing
+- Installing
 How/where to download your program
-Any modifications needed to be made to files/folders
-Executing program
+- Any modifications needed to be made to files/folders
+- Executing program
 How to run the program
 Step-by-step bullets
 code blocks for commands
-Help
+- Help
 Any advise for common problems or issues.
 
 command to run if program contains helper info
-Authors
+- Authors
 Contributors names and contact info
 
-ex. Dominique Pizzie
-ex. @DomPizzie
+_____________________________________
 
 Version History
 0.2
