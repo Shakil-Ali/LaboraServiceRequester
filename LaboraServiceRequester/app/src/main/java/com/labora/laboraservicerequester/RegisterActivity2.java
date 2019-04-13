@@ -58,12 +58,11 @@ public class RegisterActivity2 extends AppCompatActivity implements View.OnClick
         editTextFullName = (EditText) findViewById(R.id.editTextFullName);
         editTextPhoneNumber = (EditText) findViewById(R.id.editTextPhoneNumber);
         buttonRegister = (Button) findViewById(R.id.buttonRegister);
-        //editTextOccupancy = (EditText) findViewById(R.id.editTextOccupancy);
-        //editTextPostalAddress = (EditText) findViewById(R.id.editTextPostalAddress);
 
         // Initialise fire base
         firebaseAuth = FirebaseAuth.getInstance();
 
+        // Conditional if statement
         if(firebaseAuth.getCurrentUser() != null)
         {
             //profile activity
@@ -118,7 +117,9 @@ public class RegisterActivity2 extends AppCompatActivity implements View.OnClick
 
             // If successful inform user and take them to profile page
             Toast.makeText(RegisterActivity2.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+            // Finish the activity
             finish();
+            // Start new activity ProfileActivity
             startActivity(new Intent(getApplicationContext(),  ProfileActivity.class));
         }
         // Else statement

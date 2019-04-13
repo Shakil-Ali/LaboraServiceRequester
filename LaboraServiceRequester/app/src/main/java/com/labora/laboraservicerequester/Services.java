@@ -153,7 +153,9 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
     // Open summary page when the request is successful
     public void openSummary()
     {
+        // Instantiate new activity
         Intent intent = new Intent(this, Summary.class);
+        // Start the new activity
         startActivity(intent);
     }
 
@@ -162,10 +164,12 @@ public class Services extends AppCompatActivity implements AdapterView.OnItemSel
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
     {
+        // Conditional if statement
         if(parent.getItemAtPosition(position).equals("Choose a service"))
         {
             // do nothing
         }
+        // Conditional else statement
         else {
             String text = parent.getItemAtPosition(position).toString();
             //Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();

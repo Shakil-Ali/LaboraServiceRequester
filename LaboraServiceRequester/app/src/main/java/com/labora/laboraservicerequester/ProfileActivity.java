@@ -34,7 +34,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         // Check if current user exists
         if(firebaseAuth.getCurrentUser() == null)
         {
+            // Finish the current activity
             finish();
+            // Start the new activity
             startActivity(new Intent(this, LoginActivity.class));
         }
 
@@ -71,8 +73,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         {
             // Sign out method from fire base database
             firebaseAuth.signOut();
-            // Finish and start the login screen
+            // Finish the current activity
             finish();
+            // Start the LoginActivity
             startActivity(new Intent(this, LoginActivity.class));
         }
     }
@@ -80,8 +83,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     // Open services method
     public void openServices()
     {
-        // Start services activity
+        // Initialise the new activity
         Intent intent = new Intent(this, Services.class);
+        // Start the new activity
         startActivity(intent);
     }
 

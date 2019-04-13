@@ -1,5 +1,13 @@
 package com.labora.laboraservicerequester;
 
+// Video References which aided us in development throughout
+// https://www.youtube.com/watch?v=tJVBXCNtUuk - Login
+// https://www.youtube.com/watch?v=0NFwF7L-YA8 - Registration
+// https://www.youtube.com/watch?v=bgIUdb-7Rqo - New Activity
+// https://www.youtube.com/watch?v=Y7JTkXoN8OE - Images
+// https://www.youtube.com/watch?v=71H9-MRXYOE - Firebase (Real-time database/ Firestore)
+
+
 // Import statements
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -54,6 +62,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         progressDialog = new ProgressDialog(this);
 
+        // Set on click listeners
         buttonSignIn.setOnClickListener(this);
         buttonSignUp.setOnClickListener(this);
 
@@ -72,6 +81,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         {
             //email is empty
             Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
+            // Return
             return;
         }
 
@@ -80,6 +90,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         {
             //password is empty
             Toast.makeText(this, "Please enter a valid password", Toast.LENGTH_SHORT).show();
+            // Return
             return;
         }
 
@@ -98,12 +109,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         // If their account details exits, log them in
                         if(task.isSuccessful())
                         {
+                            // Finish current activity
                             finish();
+                            // Instantiate ProfileActivity
                             startActivity(new Intent(getApplicationContext(),  ProfileActivity.class));
 
                         }
                         // Else they dont have an account
                         else {
+                            // Toast to inform the user
                             Toast.makeText(LoginActivity.this, "Please enter valid login credentials or register an account", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -125,8 +139,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         // Conditional to check if sign up button clicked
         if(view == buttonSignUp)
         {
-            // Open registration activity
+            // Finish the current activity
             finish();
+            // Start and open the Register Activity
             startActivity(new Intent(this, RegisterActivity.class));
         }
     }

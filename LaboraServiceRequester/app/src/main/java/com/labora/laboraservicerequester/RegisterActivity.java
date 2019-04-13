@@ -67,8 +67,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         // Check if email entered
         if(TextUtils.isEmpty(email))
         {
-            //email is empty
+            // Inform the user that they need to enter valid email
             Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
+            // Return statement
             return;
         }
 
@@ -77,6 +78,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         {
             //password is empty
             Toast.makeText(this, "Please enter a valid password, which has 6 or more characters", Toast.LENGTH_SHORT).show();
+            // Return statement
             return;
         }
 
@@ -96,10 +98,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         {
                             // Inform user with a message
                             Toast.makeText(RegisterActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
-                            // Finish this activity and start register 2 activity
+                            // Finish the current activity
                             finish();
+                            // Start the RegisterActivity
                             startActivity(new Intent(getApplicationContext(),  RegisterActivity2.class));
                         }
+                        // Else conditional
                         else {
                             // Inform user with message
                             Toast.makeText(RegisterActivity.this, "Failed to register. Please try again", Toast.LENGTH_SHORT).show();
