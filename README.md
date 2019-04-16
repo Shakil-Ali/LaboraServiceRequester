@@ -1,58 +1,37 @@
 # Group 16 Service Requester Software Project 
 
-Project Title
-Simple overview of use/purpose.
+**LABORA - GROUP 16 - SOFWARE PROJECT**
+Below is the break downs of our service requester and contractor applications
 
 ______________________________________
 
-Description
-An in-depth paragraph about your project and overview of use.
+Getting Started - Dependencies:
+You will need to download Android Studio, and either download an emulator or use an android device to run the application(s)
 
-| **Function** | **DIRECTORY, FILENAME & LINE NUMBER** | **DESCRIPTION** |
-| --- | --- | --- |
-| # | # | # |
-| # | # | # |
-| # | # | # |
-| # | # | # |
+______________________________________
+
+Contrator:
+Contractor consisted of 5 activities
+
+| **CLASS FILE** | **DESCRIPTION** |
+| --- | --- |
+| Register Activity | The RegisterActivity file enables contractors to create an account within the app through the login page.  | 
+| Login Activity | The LoginActivity file enables the Login page within our Android Studio app to load and function correctly. The file allows contractors to be able to create an account and login. | 
+| Menu Activity | The MenuActivity file allows the contractor to go online and pick up jobs. Once they go online, they can receive jobs which will come up on the screen and they can choose to accept or decline.| 
+| Map Activity | The MapActivity file displays a map with the location of the customer. Once the contractor accepts the job it will take them to the map and they can follow the route to the destination of the customer. |
+| Done Activity | Within the DoneActivity file it consists of a message coming up on the screen saying “You have accepted the job” with a big green tick. |
 
 
-_____________________________________
+_______________________________________
 
-Getting Started:
-- Dependencies
-Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-ex. Windows 10
-- Installing
-How/where to download your program
-- Any modifications needed to be made to files/folders
-- Executing program
-How to run the program
-Step-by-step bullets
-code blocks for commands
-- Help
-Any advise for common problems or issues.
+Service Requester:
+Service Requester consisted of **blank** ativities
 
-command to run if program contains helper info
-- Authors
-Contributors names and contact info
+| **CLASS FILE** | **DESCRIPTION** |
+| --- | --- |  
+| # | # |
+| # | # |
+| # | # |
+| # | # |
 
-_____________________________________
-
-Version History
-0.2
-Various bug fixes and optimizations
-See commit change or See release history
-0.1
-Initial Release
-License
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-Acknowledgments
-Inspiration, code snippets, etc.
-
-awesome-readme
-PurpleBooth
-dbader
-zenorocha
-fvcproductions
 
