@@ -1,7 +1,8 @@
 # Group 16 Service Requester Software Project 
 
 **LABORA - GROUP 16 - SOFWARE PROJECT**
-Below is the break downs of our service requester and contractor applications
+
+Below is the break down of our service requester applications
 
 ______________________________________
 
@@ -11,7 +12,7 @@ You will need to download Android Studio, and either download an emulator or use
 _______________________________________
 
 **Service Requester:**
-Service Requester consistsS of 6 ativities
+Service Requester consists of 6 ativities
 
 | **CLASS FILE** | **DESCRIPTION** |
 | --- | --- |  
