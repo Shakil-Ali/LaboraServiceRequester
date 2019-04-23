@@ -2,7 +2,7 @@
 
 **LABORA - GROUP 16 - SOFWARE PROJECT**
 
-Below is the break down of our service requester applications
+Below is the break down of our service requester application
 
 ______________________________________
 
